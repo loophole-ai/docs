@@ -3,9 +3,9 @@
   "theme": "sequoia",
   "name": "Loophole",
   "colors": {
-    "primary": "#7C3AED",
-    "light": "#A78BFA",
-    "dark": "#5B21B6"
+    "primary": "#14B8A6",
+    "light": "#5EEAD4",
+    "dark": "#0F766E"
   },
   "favicon": "/favicon.svg",
   "navigation": {
