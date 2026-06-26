@@ -1,0 +1,55 @@
+---
+title: "Configuration"
+description: "Set up your AI provider keys and personal preferences"
+---
+
+Loophole works out of the box, but you'll get the most out of it once you plug in your own AI keys. This page walks you through that.
+
+## Add your AI provider
+
+Loophole supports a bunch of AI providers. You only need one to get going.
+
+<Steps>
+  <Step title="Open settings">
+    Press `Cmd+,` (Mac) or `Ctrl+,` (Windows/Linux) to open Settings.
+  </Step>
+  <Step title="Go to the AI tab">
+    On the left sidebar of settings, click **AI Providers**.
+  </Step>
+  <Step title="Paste your key">
+    Pick a provider and paste your API key in the box.
+
+    - **OpenAI** — get a key at [platform.openai.com](https://platform.openai.com/api-keys)
+    - **Anthropic** — get a key at [console.anthropic.com](https://console.anthropic.com/)
+    - **Google Gemini** — get a key at [aistudio.google.com](https://aistudio.google.com/)
+    - **Local models** — point Loophole at your Ollama or LM Studio instance
+  </Step>
+  <Step title="Pick your default model">
+    Choose which model to use by default. You can always switch later from the chat panel.
+  </Step>
+</Steps>
+
+## Use a local model
+
+Want to run everything on your own machine? Loophole works with [Ollama](https://ollama.com/) and [LM Studio](https://lmstudio.ai/).
+
+1. Install Ollama and pull a model (for example, `ollama pull qwen2.5-coder`).
+2. In Loophole, go to **Settings → AI Providers → Local**.
+3. Set the URL to `http://localhost:11434` and pick your model.
+
+## Other settings worth tweaking
+
+- **Theme** — light, dark, or system
+- **Font size** — make the editor easier on your eyes
+- **Keybindings** — switch to VS Code, Vim, or Emacs style
+- **Autosave** — turn it on if you forget to hit save
+
+## Where settings live
+
+Your settings are stored on your computer at:
+
+- **Mac:** `~/Library/Application Support/Loophole/settings.json`
+- **Windows:** `%APPDATA%\Loophole\settings.json`
+- **Linux:** `~/.config/Loophole/settings.json`
+
+You can edit that file by hand if you want.

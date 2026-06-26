@@ -1,0 +1,47 @@
+---
+title: "Inline edits"
+description: "Rewrite code right where it is"
+---
+
+Sometimes you don't want a full chat conversation. You just want to fix this one block of code. That's what inline edits are for.
+
+## How to use it
+
+<Steps>
+  <Step title="Highlight code">
+    Select the code you want to change. Or just put your cursor where you want something new.
+  </Step>
+  <Step title="Press the shortcut">
+    `Cmd+K` on Mac, `Ctrl+K` on Windows/Linux.
+  </Step>
+  <Step title="Describe the change">
+    A little box pops up. Type what you want, like _"add a try/catch around this"_ or _"make this faster"_.
+  </Step>
+  <Step title="Accept or reject">
+    Loophole shows the change as a diff. Press `Tab` to accept or `Esc` to throw it out.
+  </Step>
+</Steps>
+
+## Good prompts
+
+Clear, short prompts work best. Examples:
+
+- _"Add JSDoc comments"_
+- _"Convert to TypeScript"_
+- _"Handle the case where input is null"_
+- _"Make this function pure"_
+- _"Rename all the variables to be more descriptive"_
+
+## When to use chat instead
+
+Use chat when:
+
+- You need to change multiple files at once
+- You're asking a question, not making an edit
+- You want a back-and-forth conversation
+
+Use inline edit when:
+
+- You know exactly what code you want to change
+- It's a quick, focused change
+- You don't want to leave your file

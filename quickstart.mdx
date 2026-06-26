@@ -3,45 +3,66 @@ title: "Quickstart"
 description: "Begin with a guide on the fastest path to a successful outcome"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+This guide takes you from zero to writing code with Loophole. No prior setup needed.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+## Before you start
 
-## Prerequisites
+Make sure you have:
 
-Before you begin, you must have:
+- A computer running macOS, Windows, or Linux
+- About 5 minutes
+- A project you want to work on (or you can make a new one)
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+## Steps
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Download Loophole">
+    Head to our [GitHub releases page](https://github.com/loophole-ai/loophole-ide/releases) and grab the latest version for your operating system.
 
-    ```bash
-    npm install your-package
-    ```
+    Or check the [Installation guide](/getting-started/installation) for step-by-step instructions per platform.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+  <Step title="Open it up">
+    Install Loophole like any normal app. On macOS, drag it to Applications. On Windows, run the installer. On Linux, run the AppImage or `.deb` package.
 
-    ```bash
-    your-cli init
-    ```
+    Open Loophole when it's done.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+  <Step title="Open a project">
+    Click **File → Open Folder** and pick any folder with code in it. If you don't have one, make a new folder and open that.
+  </Step>
+  <Step title="Try the AI chat">
+    Press `Cmd+L` (Mac) or `Ctrl+L` (Windows/Linux) to open the chat panel.
 
-    ```bash
-    your-cli start
+    Try asking something like:
+
+    ```text
+    What does this project do?
     ```
+
+    Loophole will read your project and answer.
+  </Step>
+  <Step title="Make your first edit">
+    Highlight a piece of code, press `Cmd+K` (Mac) or `Ctrl+K` (Windows/Linux), and describe what you want changed. For example:
+
+    ```text
+    Add error handling to this function
+    ```
+
+    Loophole rewrites the code right there.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## What's next?
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+<CardGroup cols={2}>
+  <Card title="Explore the features" icon="sparkles" href="/features/ai-chat">
+    See everything Loophole can do.
+  </Card>
+
+  <Card title="Set up your AI keys" icon="key" href="/getting-started/configuration">
+    Use your own OpenAI, Anthropic, or local models.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Stuck? Open an issue on [GitHub](https://github.com/loophole-ai/loophole-ide/issues) and we'll help you out.
 </Tip>

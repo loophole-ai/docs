@@ -1,0 +1,48 @@
+---
+title: "Agent mode"
+description: "Let Loophole make changes across your whole project"
+---
+
+Agent mode is the most powerful thing Loophole can do. You give it a task, and it goes off and does the work — reading files, editing them, running commands, and reporting back.
+
+<Warning>
+  Agent mode can change a lot of files at once. Make sure your work is committed before you start.
+</Warning>
+
+## Turn it on
+
+In the chat panel, click the dropdown at the top and switch from **Chat** to **Agent**.
+
+## What it can do
+
+- Read any file in your project
+- Edit files
+- Create new files and folders
+- Run terminal commands (with your permission)
+- Run tests and check the output
+- Search the web for documentation
+
+## Example tasks
+
+- _"Add user authentication to this app using JWT."_
+- _"Find every place we call the old API and update it to the new one."_
+- _"Set up ESLint and Prettier with our team's config."_
+- _"Write integration tests for the checkout flow."_
+
+## Approving actions
+
+Before Loophole runs a command or makes a big edit, it asks. You can:
+
+- **Accept** — let it do the thing
+- **Reject** — stop it
+- **Auto-approve safe things** — turn this on in settings if you trust it
+
+## When agent mode gets stuck
+
+Sometimes it goes in circles. If that happens:
+
+1. Stop it (the **Stop** button at the bottom of chat)
+2. Tell it specifically what went wrong
+3. Give it a smaller task
+
+Smaller, clearer tasks beat huge open-ended ones every time.

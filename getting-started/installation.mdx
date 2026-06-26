@@ -1,0 +1,62 @@
+---
+title: "Installation"
+description: "How to install Loophole on Mac, Windows, and Linux"
+---
+
+Loophole works on Mac, Windows, and Linux. Pick your operating system below and follow the steps.
+
+## macOS
+
+<Steps>
+  <Step title="Download the file">
+    Go to our [releases page](https://github.com/loophole-ai/loophole-ide/releases) and download the `.dmg` file.
+
+    If you have an Apple Silicon Mac (M1, M2, M3, M4), grab the `arm64` version. Otherwise grab the `x64` version.
+  </Step>
+  <Step title="Open the file">
+    Double-click the `.dmg` file you just downloaded.
+  </Step>
+  <Step title="Drag to Applications">
+    A window will pop up. Drag the Loophole icon into the Applications folder.
+  </Step>
+  <Step title="Open Loophole">
+    Open your Applications folder and double-click Loophole. macOS might ask if you're sure you want to open it. Click **Open**.
+  </Step>
+</Steps>
+
+## Windows
+
+<Steps>
+  <Step title="Download the installer">
+    Go to our [releases page](https://github.com/loophole-ai/loophole-ide/releases) and download the `.exe` file.
+  </Step>
+  <Step title="Run the installer">
+    Double-click the file and follow the prompts. Windows might warn you about an unrecognized publisher. Click **More info → Run anyway**.
+  </Step>
+  <Step title="Open Loophole">
+    Loophole should be in your Start menu. Click it to open.
+  </Step>
+</Steps>
+
+## Linux
+
+We ship two formats for Linux. Pick whichever works for you.
+
+### AppImage (works on most distros)
+
+```bash
+chmod +x Loophole-*.AppImage
+./Loophole-*.AppImage
+```
+
+### Debian / Ubuntu
+
+```bash
+sudo dpkg -i loophole_*.deb
+```
+
+Then open Loophole from your apps menu or run `loophole` in the terminal.
+
+## Having trouble?
+
+If something didn't work, [open an issue on GitHub](https://github.com/loophole-ai/loophole-ide/issues/new). Tell us what OS you're on and what error you saw, and we'll help.

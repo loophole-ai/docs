@@ -1,0 +1,81 @@
+---
+title: "Contributing"
+description: "Help us build Loophole"
+---
+
+Loophole is open source, and we'd love your help. Whether you fix a typo or add a whole new feature, every contribution counts.
+
+Here's how to jump in.
+
+## Before you write code
+
+1. Look through the [open issues](https://github.com/loophole-ai/loophole-ide/issues) to see what needs doing.
+2. If you have a brand new idea, [open an issue first](/community/feature-requests) so we can talk about it before you spend a bunch of time on it.
+3. Read our [Code of Conduct](/community/code-of-conduct). Be kind. That's most of it.
+
+## Set up your dev environment
+
+You'll need:
+
+- **Node.js** 20 or higher
+- **pnpm** (we use it instead of npm)
+- **Git**
+
+<Steps>
+  <Step title="Fork the repo">
+    Go to [github.com/loophole-ai/loophole-ide](https://github.com/loophole-ai/loophole-ide) and hit the **Fork** button up top.
+  </Step>
+  <Step title="Clone your fork">
+    ```bash
+    git clone https://github.com/YOUR-USERNAME/loophole-ide.git
+    cd loophole-ide
+    ```
+  </Step>
+  <Step title="Install dependencies">
+    ```bash
+    pnpm install
+    ```
+  </Step>
+  <Step title="Run Loophole locally">
+    ```bash
+    pnpm dev
+    ```
+
+    This opens a dev build of Loophole. Changes you make to the code show up here.
+  </Step>
+</Steps>
+
+## Make your change
+
+1. Make a new branch: `git checkout -b fix-the-thing`
+2. Write your code
+3. Run the tests: `pnpm test`
+4. Run the linter: `pnpm lint`
+5. Commit and push
+
+## Open a pull request
+
+1. Push your branch to your fork
+2. Go to the [original repo](https://github.com/loophole-ai/loophole-ide) on GitHub
+3. Click **Compare & pull request**
+4. Write a clear title and description. Mention which issue you're fixing if there is one (use `Fixes #123`).
+
+A maintainer will review it. If we ask for changes, don't take it personally — we just want the codebase to stay good.
+
+## What we love
+
+- Bug fixes
+- Documentation improvements (including this very site)
+- Tests
+- Performance improvements
+- New AI provider integrations
+
+## What to chat about first
+
+- Big new features
+- UI/UX overhauls
+- Anything that changes how the app feels to use
+
+Open an issue or join our [Discord](https://discord.gg/loophole) to talk it through before you build it.
+
+Thanks for helping out. Seriously.

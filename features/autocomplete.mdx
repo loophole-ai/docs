@@ -1,0 +1,49 @@
+---
+title: "Autocomplete"
+description: "Smart code suggestions while you type"
+---
+
+As you type, Loophole guesses what you're about to write and shows it in gray. Hit `Tab` to accept it.
+
+## How it works
+
+Loophole looks at:
+
+- The code around your cursor
+- Other files in your project
+- The language you're writing in
+- Patterns it has seen across your codebase
+
+Then it suggests something that fits. Not generic boilerplate — code that actually matches your style.
+
+## Controls
+
+- **Accept the whole suggestion** — `Tab`
+- **Accept one word** — `Cmd+→` (Mac) or `Ctrl+→` (Windows/Linux)
+- **Reject** — just keep typing, or hit `Esc`
+- **Next suggestion** — `Alt+]`
+- **Previous suggestion** — `Alt+[`
+
+## Turn it off
+
+Don't like it? Click the Loophole icon in the bottom status bar and hit **Pause autocomplete**. Or turn it off entirely in **Settings → Autocomplete**.
+
+## Make it smarter
+
+Autocomplete gets better when:
+
+- You have more files open in the editor
+- You name your variables and functions clearly
+- You write comments that explain what you're doing
+
+## Custom rules
+
+You can give Loophole rules about your codebase by adding a `.loopholerules` file to your project. For example:
+
+```text
+- Use tabs, not spaces
+- Prefer async/await over .then()
+- All API responses should be wrapped in { data, error }
+```
+
+Loophole reads this and shapes its suggestions to match.

@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "sequoia",
+  "name": "Loophole",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#5B21B6"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -21,17 +21,63 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "GitHub",
+          "icon": "github",
+          "href": "https://github.com/loophole-ai/loophole-ide"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Discord",
+          "icon": "discord",
+          "href": "https://discord.gg/loophole"
         }
       ]
-    }
+    },
+    "groups": [
+      {
+        "group": "Getting Started",
+        "icon": "rocket",
+        "pages": [
+          "index",
+          "quickstart",
+          "getting-started/installation",
+          "getting-started/configuration",
+          "getting-started/first-project"
+        ]
+      },
+      {
+        "group": "Features",
+        "icon": "sparkles",
+        "pages": [
+          "features/ai-chat",
+          "features/autocomplete",
+          "features/inline-edits",
+          "features/agent-mode",
+          "features/codebase-context",
+          "features/keyboard-shortcuts"
+        ]
+      },
+      {
+        "group": "Guides",
+        "icon": "book",
+        "pages": [
+          "guides/working-with-git",
+          "guides/extensions",
+          "guides/themes",
+          "guides/troubleshooting"
+        ]
+      },
+      {
+        "group": "Community",
+        "icon": "users",
+        "pages": [
+          "community/contributing",
+          "community/reporting-issues",
+          "community/feature-requests",
+          "community/code-of-conduct",
+          "community/support"
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -41,13 +87,12 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://github.com/loophole-ai/loophole-ide/issues"
       }
     ],
     "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "type": "github",
+      "href": "https://github.com/loophole-ai/loophole-ide"
     }
   },
   "contextual": {
@@ -64,9 +109,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/loophole-ai"
     }
   }
 }

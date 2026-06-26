@@ -1,0 +1,57 @@
+---
+title: "Your first project"
+description: "Open a project and start coding with Loophole"
+---
+
+Got Loophole installed? Good. Let's open a project and write some code with the AI.
+
+## Open a folder
+
+Click **File → Open Folder** (or press `Cmd+O` / `Ctrl+O`) and pick a folder. It can be anything — an old project, a new one, or even an empty folder.
+
+If you don't have a project, here's a fast way to make one:
+
+```bash
+mkdir my-first-project
+cd my-first-project
+echo "console.log('hello')" > index.js
+```
+
+Then open that folder in Loophole.
+
+## Look around
+
+Here's what you'll see when you open Loophole:
+
+- **Left side** — your file tree
+- **Middle** — the code editor
+- **Right side** — the AI chat panel (press `Cmd+L` / `Ctrl+L` to toggle it)
+- **Bottom** — the terminal (press `Ctrl+`` to toggle)
+
+## Try a real workflow
+
+Let's say you want to add a function that reverses a string. Here's how you'd do it with Loophole:
+
+<Steps>
+  <Step title="Open chat">
+    Hit `Cmd+L` / `Ctrl+L`.
+  </Step>
+  <Step title="Ask for the code">
+    Type: _"Add a function called reverseString to index.js that takes a string and returns it reversed."_
+  </Step>
+  <Step title="Review the change">
+    Loophole shows you a diff. Look it over.
+  </Step>
+  <Step title="Accept or reject">
+    Click **Accept** to keep the change, or **Reject** to throw it away.
+  </Step>
+</Steps>
+
+That's the loop. Ask, review, accept. The more context you give the AI, the better answers you get.
+
+## Tips for new users
+
+- Mention files by typing `@filename` in chat to pull them into context
+- Use `@codebase` to let Loophole search the whole project
+- Don't be afraid to ask follow-up questions — the AI remembers the conversation
+- If something looks off, just say "that's wrong, try again"

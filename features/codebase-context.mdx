@@ -1,0 +1,36 @@
+---
+title: "Codebase context"
+description: "How Loophole understands your project"
+---
+
+When you ask Loophole a question, it doesn't just read the file you're in. It can pull in context from your whole project. Here's how that works.
+
+## Indexing
+
+The first time you open a project, Loophole builds an index of your files. This lets it search quickly later. You'll see a small spinner at the bottom right while it's working.
+
+The index updates automatically as you change files.
+
+## Using @codebase
+
+In chat, type `@codebase` followed by your question. Loophole will search through your project to find relevant code before answering.
+
+Example: _"@codebase where do we handle user signup?"_
+
+## .loopholeignore
+
+Don't want Loophole reading certain files? Add a `.loopholeignore` to your project root. It works just like `.gitignore`:
+
+```text
+node_modules
+.env
+.env.local
+secrets/
+*.log
+```
+
+## Privacy
+
+Your code only goes to the AI provider when you actually send a chat message. The index lives on your machine. None of it is uploaded to us.
+
+If you're using a local model (like Ollama), your code never leaves your computer at all.

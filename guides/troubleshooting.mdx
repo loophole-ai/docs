@@ -1,0 +1,51 @@
+---
+title: "Troubleshooting"
+description: "Fixes for common problems"
+---
+
+Something not working? Try these first.
+
+## Loophole won't open
+
+- **Mac:** Right-click the app and pick **Open**. macOS sometimes blocks new apps the first time.
+- **Windows:** Run as administrator the first time, just to be safe.
+- **Linux:** Make sure the AppImage is executable: `chmod +x Loophole-*.AppImage`.
+
+Still nothing? Delete the settings folder (see [Configuration](/getting-started/configuration) for the path) and try again.
+
+## Chat isn't responding
+
+1. Check your internet connection.
+2. Open **Settings → AI Providers** and confirm your API key is still valid.
+3. Look at the status bar at the bottom — if it says "Rate limited" or "No credits", that's your problem.
+4. Try a different model from the chat dropdown.
+
+## Autocomplete stopped working
+
+- Click the Loophole icon in the status bar. If it says **Paused**, click **Resume**.
+- Check **Settings → Autocomplete** is turned on.
+- Make sure the file's language is supported (most are).
+
+## Indexing is stuck
+
+The small spinner at the bottom right won't go away?
+
+1. Open the command palette and run **Loophole: Re-index Codebase**.
+2. If that doesn't fix it, your project might be too big. Add stuff to `.loopholeignore` to skip the heavy folders.
+
+## Loophole is slow
+
+- Close files you're not using
+- Check the terminal output for memory warnings
+- Disable extensions one by one to find the culprit
+- Restart Loophole
+
+## Still stuck?
+
+Open an issue on [GitHub](https://github.com/loophole-ai/loophole-ide/issues). Tell us:
+
+- Your OS and Loophole version (find the version in **Help → About**)
+- What you were doing when it broke
+- Any error messages you saw
+
+We'll get back to you.
