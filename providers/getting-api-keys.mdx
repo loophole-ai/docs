@@ -1,0 +1,131 @@
+---
+title: "Getting API Keys"
+description: "Step-by-step links and instructions to get API keys from every supported provider"
+---
+
+All cloud providers require an API key to authenticate requests. Here's exactly where to get one for each provider, how long it takes, and whether there's a free tier.
+
+## Quick reference
+
+| Provider | Sign-up link | Free tier | Approval required |
+| --- | --- | --- | --- |
+| Anthropic | [console.anthropic.com](https://console.anthropic.com) | No (credit card required) | No |
+| OpenAI | [platform.openai.com](https://platform.openai.com) | \$5 free credit (new users) | No |
+| Google Gemini | [aistudio.google.com](https://aistudio.google.com) | Yes — generous free tier | No |
+| DeepSeek | [platform.deepseek.com](https://platform.deepseek.com) | Small free credit | No |
+| xAI (Grok) | [console.x.ai](https://console.x.ai) | Limited free tier | No |
+| Mistral | [console.mistral.ai](https://console.mistral.ai) | Trial credits | No |
+| Groq | [console.groq.com](https://console.groq.com) | Yes — rate-limited | No |
+| OpenRouter | [openrouter.ai](https://openrouter.ai) | Yes — limited credits | No |
+| Together AI | [api.together.ai](https://api.together.ai) | \$1 free credit | No |
+| Fireworks AI | [fireworks.ai](https://fireworks.ai) | \$1 free credit | No |
+| Perplexity | [perplexity.ai/settings/api](https://www.perplexity.ai/settings/api) | No | No |
+| Cohere | [dashboard.cohere.com](https://dashboard.cohere.com) | Trial key | No |
+| AWS Bedrock | [console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock) | AWS free tier | Yes (per model) |
+| Google Vertex AI | [console.cloud.google.com](https://console.cloud.google.com) | \$300 GCP credit (new) | No |
+| Microsoft Azure | [ai.azure.com](https://ai.azure.com) | Azure free tier | Yes (GPT-4 tier) |
+
+---
+
+## Anthropic
+
+1. Go to [console.anthropic.com](https://console.anthropic.com) and sign in.
+2. Navigate to **API Keys** → **Create Key**.
+3. Name the key (e.g. "Loophole") and copy it.
+4. Add a payment method under **Billing** — Anthropic requires a card even if you're testing.
+
+<Tip>
+  Start with a low spending limit (e.g. \$10/month) in **Billing → Usage Limits** to avoid surprise charges while experimenting.
+</Tip>
+
+---
+
+## OpenAI
+
+1. Go to [platform.openai.com](https://platform.openai.com) and sign in.
+2. Navigate to **API Keys** → **Create new secret key**.
+3. Name it and copy it immediately — you won't see it again.
+4. New accounts get \$5 in free credits. Add a payment method under **Billing** once exhausted.
+
+---
+
+## Google Gemini
+
+1. Go to [aistudio.google.com](https://aistudio.google.com) and sign in with your Google account.
+2. Click **Get API Key** in the sidebar → **Create API key**.
+3. Choose or create a Google Cloud project, then copy the key.
+
+The Gemini API has a free tier with no credit card required — generous rate limits for personal use.
+
+---
+
+## DeepSeek
+
+1. Go to [platform.deepseek.com](https://platform.deepseek.com) and sign in.
+2. Navigate to **API Keys** → **Create API Key**.
+3. Copy the key. DeepSeek is one of the cheapest providers per token.
+
+---
+
+## xAI (Grok)
+
+1. Go to [console.x.ai](https://console.x.ai) and log in with your X (Twitter) account.
+2. Navigate to **API Keys** → **Create API Key**.
+3. Copy the key.
+
+---
+
+## Mistral
+
+1. Go to [console.mistral.ai](https://console.mistral.ai) and sign in.
+2. Navigate to **API Keys** → **Create new key**.
+3. Copy the key — it won't be shown again.
+
+<Note>
+  Codestral (Mistral's code model) may require a separate key. Visit [codestral.mistral.ai](https://codestral.mistral.ai) to request Codestral access.
+</Note>
+
+---
+
+## Groq
+
+1. Go to [console.groq.com](https://console.groq.com) and sign up.
+2. Navigate to **API Keys** → **Create API Key**.
+3. Copy the key.
+
+Groq has a free tier with per-minute rate limits — great for personal use with no credit card needed.
+
+---
+
+## OpenRouter
+
+1. Go to [openrouter.ai](https://openrouter.ai) and sign in.
+2. Navigate to **Keys** → **Create Key**.
+3. Optionally set a credit limit for the key.
+4. Add credits under **Credits** — minimum top-up is usually \$5.
+
+---
+
+## Together AI
+
+1. Go to [api.together.ai](https://api.together.ai) and sign up.
+2. Your API key is shown on the **Settings** or **API Keys** page.
+3. New accounts get \$1 in free credits.
+
+---
+
+## Fireworks AI
+
+1. Go to [fireworks.ai](https://fireworks.ai) and sign up.
+2. Navigate to **API Keys** → **Create API Key**.
+3. New accounts get \$1 in free credits.
+
+---
+
+## Local providers (no key needed)
+
+**Ollama**, **LM Studio**, and **vLLM** run on your machine and don't require any API key. See their individual provider pages for setup:
+
+- [Ollama](/providers/ollama)
+- [LM Studio](/providers/lm-studio)
+- [vLLM](/providers/vllm)

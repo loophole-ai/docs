@@ -1,0 +1,49 @@
+---
+title: "Google Gemini"
+description: "Connect Loophole to Google's Gemini models via the Gemini API"
+---
+
+## Getting your API key
+
+<Steps>
+  <Step title="Open Google AI Studio">
+    Go to [aistudio.google.com](https://aistudio.google.com) and sign in with your Google account.
+  </Step>
+  <Step title="Create an API key">
+    Click **Get API key** in the left sidebar, then **Create API key**. Choose a Google Cloud project (or create a new one) and copy the key.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Gemini**, paste your key, and save.
+  </Step>
+</Steps>
+
+<Note>
+  The Gemini API has a free tier with generous limits — great for trying it out before committing to paid usage.
+</Note>
+
+## Available models
+
+| Model | Context window | Best for |
+| --- | --- | --- |
+| `gemini-3.1-pro` | 1,485,760 tokens | Most capable Gemini — complex reasoning |
+| `gemini-3.1-flash-lite` | Large | Fast, cheap completions |
+| `gemini-3-deep-think` | Large | Deep reasoning tasks |
+| `gemini-2.5-pro` | 1,000,000 tokens | Strong all-rounder with huge context |
+| `gemini-2.0-flash` | 1,000,000 tokens | Fast, great value |
+| `gemini-2.0-flash-lite` | 1,000,000 tokens | Cheapest Gemini option |
+| `gemini-1.5-pro` | 2,000,000 tokens | Largest context window available |
+| `gemini-1.5-flash` | 1,000,000 tokens | Fast and affordable |
+
+## Gemini's massive context window
+
+Gemini 1.5 Pro supports up to 2 million tokens — the largest context window of any supported model. This means you can include very large files, entire codebases, or long conversation histories without hitting limits.
+
+## Tips
+
+- `gemini-2.0-flash` is an excellent everyday model — fast, cheap, and very capable.
+- Use `gemini-1.5-pro` when you need to feed in a very large codebase or document.
+- Gemini models support tool use and work well in Agent mode.
+
+## Enterprise: Google Vertex AI
+
+If you're using Gemini in a corporate/enterprise environment, see the [Google Vertex AI provider page](/providers/google-vertex) for GCP-based access with private networking and IAM controls.

@@ -1,0 +1,44 @@
+---
+title: "Mistral"
+description: "Connect Loophole to Mistral AI's models including Codestral for FIM autocomplete"
+---
+
+## Getting your API key
+
+<Steps>
+  <Step title="Create a Mistral account">
+    Sign up at [console.mistral.ai](https://console.mistral.ai).
+  </Step>
+  <Step title="Generate an API key">
+    Go to **API Keys** → **Create new key**. Copy the key immediately — it won't be shown again.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Mistral**, paste your key, and save.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `mistral-large-latest` | Most capable Mistral — general coding and chat |
+| `mistral-large-3` | Latest large model |
+| `mistral-large-2411` | Strong at instruction following |
+| `mistral-medium-latest` | Balance of quality and cost |
+| `codestral-latest` | Specialized for code — supports FIM autocomplete |
+
+## Codestral for autocomplete
+
+**Codestral** is Mistral's code-specialized model trained with Fill-In-Middle (FIM) support. This makes it an excellent choice for the Autocomplete feature — it understands the code before and after your cursor and fills in the gap accurately.
+
+To use it for autocomplete, go to **Settings → Model Selection → Autocomplete** and select **Mistral → codestral-latest**.
+
+<Tip>
+  Codestral has a separate API key from standard Mistral models — you may need to generate one specifically for Codestral access at [codestral.mistral.ai](https://codestral.mistral.ai).
+</Tip>
+
+## Tips
+
+- `mistral-large-latest` is a strong all-purpose model at competitive pricing.
+- `codestral-latest` is one of the best hosted options for FIM-based autocomplete.
+- Mistral models support tool use and work in Agent mode.

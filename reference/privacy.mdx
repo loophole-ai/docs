@@ -1,0 +1,71 @@
+---
+title: "Privacy & Data"
+description: "How Loophole handles your code, conversations, and data"
+---
+
+Loophole is designed with a **privacy-first architecture**: your code and conversations go directly from your machine to the AI provider — Loophole itself never sits in the middle.
+
+## How requests work
+
+```text
+Your machine → AI provider (Anthropic, OpenAI, etc.)
+```
+
+There is no Loophole server in this path. When you send a message, Loophole constructs the API request locally and sends it directly to the provider's API endpoint using your API key. Loophole never sees the content of your requests.
+
+## What Loophole collects
+
+Loophole collects minimal, anonymous telemetry to understand how the product is used and catch crashes. This includes:
+
+- Feature usage counts (e.g. "chat was opened", "agent mode was used")
+- Error and crash reports
+- Loophole version and OS type
+
+**It does not include:**
+
+- Your code or file contents
+- Your prompts or AI responses
+- Your API keys
+- File names or project structure
+
+## Opting out of telemetry
+
+To disable all telemetry:
+
+1. Open **Settings** (`Ctrl+Shift+L`)
+2. Navigate to **Privacy**
+3. Toggle **Send anonymous usage data** off
+
+Or add this to your `settings.json`:
+
+```json
+{
+  "loophole.telemetry.enabled": false
+}
+```
+
+## Your API keys
+
+API keys are stored locally in your OS keychain or Loophole's encrypted settings store — they are never transmitted to Loophole's servers. Only the AI provider receives your key (as part of each API request you make).
+
+## Local models
+
+If you use [Ollama](/providers/ollama), [LM Studio](/providers/lm-studio), or [vLLM](/providers/vllm), no data leaves your machine at all. Your code and prompts are processed entirely locally.
+
+## What providers see
+
+When you use a cloud provider (Anthropic, OpenAI, etc.), they receive:
+
+- Your prompts and any context you attach
+- The AI's responses
+- Metadata (model name, token counts, timestamps)
+
+Each provider's data handling is governed by their own privacy policy. Check the policies for the providers you use:
+
+- [Anthropic Privacy Policy](https://www.anthropic.com/privacy)
+- [OpenAI Privacy Policy](https://openai.com/policies/privacy-policy)
+- [Google Privacy Policy](https://policies.google.com/privacy)
+
+<Tip>
+  If privacy is paramount, use a local model via Ollama — your code never leaves your machine.
+</Tip>

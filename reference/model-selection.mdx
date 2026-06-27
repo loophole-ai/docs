@@ -1,0 +1,77 @@
+---
+title: "Model Selection"
+description: "Assign different models to different Loophole features"
+---
+
+Loophole lets you assign a separate AI model to each feature. This means you can use a powerful (and more expensive) model for complex agent tasks while using a fast, cheap model for autocomplete that fires on every keystroke.
+
+## Features with independent model selection
+
+| Feature | What it does | Recommended model tier |
+| --- | --- | --- |
+| **Chat** | Main AI chat panel and agent mode | Large / capable |
+| **Ctrl\+K** | Inline quick-edit prompt | Medium / fast |
+| **Autocomplete** | Inline code completions as you type | Small / fastest |
+| **Apply** | Applies chat suggestions to your actual files | Medium |
+| **SCM** | Generates commit messages from your staged diff | Small / medium |
+
+## How to configure
+
+<Steps>
+  <Step title="Open Settings">
+    Press `Ctrl+Shift+L` (`Cmd+Shift+L` on macOS) to open the Loophole settings pane.
+  </Step>
+  <Step title="Go to Model Selection">
+    Click **Model Selection** in the settings sidebar.
+  </Step>
+  <Step title="Pick a provider and model for each feature">
+    Each feature has its own dropdown. Select the provider first, then the model. Only providers you've configured with valid credentials will appear.
+  </Step>
+</Steps>
+
+## Example setups
+
+<Tabs>
+  <Tab title="Quality-first">
+    Best results, higher cost. Good for complex codebases or agent-heavy workflows.
+
+    | Feature | Model |
+    | --- | --- |
+    | Chat | `claude-opus-4` (Anthropic) |
+    | Ctrl\+K | `claude-sonnet-4-5` (Anthropic) |
+    | Autocomplete | `gpt-4o-mini` (OpenAI) |
+    | Apply | `claude-sonnet-4-5` (Anthropic) |
+    | SCM | `gpt-4o-mini` (OpenAI) |
+  </Tab>
+  <Tab title="Balanced">
+    Good quality with reasonable cost. Solid for most developers.
+
+    | Feature | Model |
+    | --- | --- |
+    | Chat | `claude-sonnet-4-5` (Anthropic) |
+    | Ctrl\+K | `gpt-4o-mini` (OpenAI) |
+    | Autocomplete | `qwen2.5-coder:1.5b` (Ollama) |
+    | Apply | `gpt-4o-mini` (OpenAI) |
+    | SCM | `qwen2.5-coder:1.5b` (Ollama) |
+  </Tab>
+  <Tab title="Fully local">
+    No API keys, no costs, fully private. Requires a decent GPU.
+
+    | Feature | Model |
+    | --- | --- |
+    | Chat | `qwen2.5-coder:7b` (Ollama) |
+    | Ctrl\+K | `qwen2.5-coder:7b` (Ollama) |
+    | Autocomplete | `qwen2.5-coder:1.5b` (Ollama) |
+    | Apply | `qwen2.5-coder:7b` (Ollama) |
+    | SCM | `qwen2.5-coder:1.5b` (Ollama) |
+  </Tab>
+</Tabs>
+
+## Model overrides
+
+For fine-grained control over how a model behaves, use **Model Overrides** (Settings → a specific model). Options include:
+
+- **Max tokens** — cap the response length
+- **Temperature** — adjust randomness (0 = deterministic, 1 = creative)
+- **Reasoning** — enable/disable extended thinking for models that support it
+- **Context window** — override the detected context window size

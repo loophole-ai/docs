@@ -1,0 +1,124 @@
+---
+title: "Agent Tools"
+description: "Built-in tools the AI agent can use to read, edit, and run things in your project"
+---
+
+When running in Agent or Gather mode, Loophole gives the AI a set of built-in tools it can call autonomously. Here's what each tool does and when the agent uses it.
+
+## Read-only tools
+
+These tools never modify your files. They're always available without approval.
+
+<AccordionGroup>
+  <Accordion title="read_file">
+    Reads the contents of a file. Supports pagination for large files — the agent will automatically request the next page if it needs more content.
+
+    **Parameters:** file path, optional start/end line numbers, page number
+  </Accordion>
+
+  <Accordion title="ls_dir">
+    Lists the contents of a directory. Returns file names, types (file/folder), and whether items are symlinks.
+
+    **Parameters:** directory path, page number
+  </Accordion>
+
+  <Accordion title="get_dir_tree">
+    Returns a full recursive tree of a directory. Useful for the agent to understand your project structure at a glance.
+
+    **Parameters:** directory path
+  </Accordion>
+
+  <Accordion title="search_pathnames_only">
+    Searches for files matching a glob pattern. Does not read file contents — just returns matching paths.
+
+    **Parameters:** query, include pattern, page number
+  </Accordion>
+
+  <Accordion title="search_for_files">
+    Searches file contents using a text or regex query. Returns the files that contain matches.
+
+    **Parameters:** query, regex flag, folder to search in, page number
+  </Accordion>
+
+  <Accordion title="search_in_file">
+    Searches within a single file and returns the line numbers of matches.
+
+    **Parameters:** file path, query, regex flag
+  </Accordion>
+
+  <Accordion title="read_lint_errors">
+    Returns the current lint/type errors for a file as reported by the editor's language server.
+
+    **Parameters:** file path
+  </Accordion>
+</AccordionGroup>
+
+## Edit tools
+
+These tools modify your files. They require approval under the **edits** approval type.
+
+<AccordionGroup>
+  <Accordion title="edit_file">
+    Makes targeted edits to a file using search-and-replace blocks. The agent specifies exactly what text to find and what to replace it with — no full-file rewrite needed.
+
+    **Parameters:** file path, search/replace blocks
+  </Accordion>
+
+  <Accordion title="rewrite_file">
+    Replaces the entire contents of a file with new content. Used when changes are too large or too pervasive for targeted edits.
+
+    **Parameters:** file path, new content
+  </Accordion>
+
+  <Accordion title="create_file_or_folder">
+    Creates a new file or folder at the specified path.
+
+    **Parameters:** path, is-folder flag
+  </Accordion>
+
+  <Accordion title="delete_file_or_folder">
+    Deletes a file or folder. Supports recursive deletion of directories.
+
+    **Parameters:** path, recursive flag, is-folder flag
+  </Accordion>
+</AccordionGroup>
+
+## Terminal tools
+
+These tools run shell commands. They require approval under the **terminal** approval type.
+
+<AccordionGroup>
+  <Accordion title="run_command">
+    Runs a shell command and waits for it to finish, then returns the output. Used for one-off commands like `npm test` or `git status`.
+
+    **Parameters:** command, working directory, terminal ID
+  </Accordion>
+
+  <Accordion title="open_persistent_terminal">
+    Opens a persistent terminal session that stays alive between commands. Used when the agent needs to run several related commands in the same shell environment.
+
+    **Parameters:** working directory
+  </Accordion>
+
+  <Accordion title="run_persistent_command">
+    Runs a command inside an existing persistent terminal session.
+
+    **Parameters:** command, persistent terminal ID
+  </Accordion>
+
+  <Accordion title="kill_persistent_terminal">
+    Closes a persistent terminal session.
+
+    **Parameters:** persistent terminal ID
+  </Accordion>
+</AccordionGroup>
+
+## Approval settings
+
+You can configure approval behaviour in **Settings → Auto-Approve**:
+
+| Approval type | Covers |
+| --- | --- |
+| `edits` | `edit_file`, `rewrite_file`, `create_file_or_folder`, `delete_file_or_folder` |
+| `terminal` | All `run_command` / terminal tools |
+| `MCP tools` | Any tool from a connected MCP server |

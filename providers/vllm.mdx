@@ -1,0 +1,66 @@
+---
+title: "vLLM"
+description: "High-performance local inference server for GPU-accelerated models"
+---
+
+[vLLM](https://github.com/vllm-project/vllm) is an open-source, high-throughput inference server for running large language models on your own GPUs. It's the best option for teams self-hosting models at scale.
+
+## Prerequisites
+
+- A Linux machine with NVIDIA GPU(s) and CUDA installed
+- Python 3.9\+
+- At least 16 GB VRAM for 7B models; 40\+ GB for 70B models
+
+## Setup
+
+<Steps>
+  <Step title="Install vLLM">
+    ```bash
+    pip install vllm
+    ```
+  </Step>
+  <Step title="Start the server">
+    ```bash
+    python -m vllm.entrypoints.openai.api_server \
+      --model Qwen/Qwen2.5-Coder-7B-Instruct \
+      --port 8000
+    ```
+
+    vLLM will download the model from Hugging Face on first run. Replace the model name with any Hugging Face model ID.
+  </Step>
+  <Step title="Connect Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **vLLM**. Set the endpoint to `http://localhost:8000` (or the host/port you configured).
+  </Step>
+  <Step title="Add the model">
+    Loophole will auto-detect models served by vLLM. Go to **Settings → Model Selection** and pick it.
+  </Step>
+</Steps>
+
+## Running on a remote GPU server
+
+If your GPU server is separate from your development machine, start vLLM with `--host 0.0.0.0` and update the Loophole endpoint to point at the server's IP:
+
+```bash
+python -m vllm.entrypoints.openai.api_server \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --host 0.0.0.0 \
+  --port 8000
+```
+
+Then in Loophole: `http://your-gpu-server-ip:8000`
+
+## Recommended models for vLLM
+
+| Model (Hugging Face ID) | VRAM required |
+| --- | --- |
+| `Qwen/Qwen2.5-Coder-7B-Instruct` | ~14 GB |
+| `Qwen/Qwen2.5-Coder-32B-Instruct` | ~64 GB |
+| `deepseek-ai/DeepSeek-Coder-V2-Instruct` | ~40 GB |
+| `meta-llama/Llama-3.3-70B-Instruct` | ~140 GB |
+| `mistralai/Codestral-22B-v0.1` | ~44 GB |
+
+## Tips
+
+- vLLM supports tensor parallelism — spread a large model across multiple GPUs with `--tensor-parallel-size N`.
+- Use quantized models (AWQ or GPTQ) to reduce VRAM requirements by 2–4×.
+- vLLM's PagedAttention makes it significantly more efficient than naive inference for concurrent requests.

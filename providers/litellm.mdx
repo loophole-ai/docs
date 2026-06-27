@@ -1,0 +1,64 @@
+---
+title: "LiteLLM"
+description: "Route requests to any provider through a single unified proxy"
+---
+
+[LiteLLM](https://github.com/BerriAI/litellm) is an open-source proxy server that translates the OpenAI API format to 100\+ providers. Point Loophole at your LiteLLM server and get a single endpoint for Anthropic, OpenAI, Gemini, Bedrock, and more — with logging, rate limiting, and cost tracking built in.
+
+## Setup
+
+<Steps>
+  <Step title="Install LiteLLM">
+    ```bash
+    pip install litellm[proxy]
+    ```
+  </Step>
+  <Step title="Create a config file">
+    Create `litellm_config.yaml`:
+
+    ```yaml
+    model_list:
+      - model_name: claude-sonnet
+        litellm_params:
+          model: anthropic/claude-sonnet-4-5
+          api_key: your-anthropic-key
+    
+      - model_name: gpt-4o
+        litellm_params:
+          model: openai/gpt-4o
+          api_key: your-openai-key
+    
+      - model_name: local-qwen
+        litellm_params:
+          model: ollama/qwen2.5-coder:7b
+          api_base: http://localhost:11434
+    ```
+  </Step>
+  <Step title="Start the proxy">
+    ```bash
+    litellm --config litellm_config.yaml --port 4000
+    ```
+  </Step>
+  <Step title="Connect Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **LiteLLM**, and set the endpoint to `http://localhost:4000`.
+  </Step>
+  <Step title="Add models">
+    Add your model names (from the config) as custom models under the LiteLLM provider in Loophole Settings.
+  </Step>
+</Steps>
+
+## When to use LiteLLM
+
+LiteLLM is especially useful for teams who want to:
+
+- **Centralize API key management** — keep all keys on the proxy, not on individual machines
+- **Add logging and observability** — LiteLLM can log all requests to Langfuse, Helicone, or a database
+- **Enforce rate limits and budgets** — set per-user or per-team spend limits
+- **Fall back between providers** — automatically retry with a backup model if the primary fails
+- **Self-host for compliance** — keep all traffic within your own infrastructure
+
+## Tips
+
+- LiteLLM's Docker image makes it easy to deploy as a team-shared service: `docker run -p 4000:4000 ghcr.io/berriai/litellm`.
+- You can generate virtual API keys on LiteLLM to give team members access without sharing the real provider keys.
+- See the [LiteLLM docs](https://docs.litellm.ai) for full configuration options.

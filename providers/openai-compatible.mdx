@@ -1,0 +1,54 @@
+---
+title: "OpenAI-Compatible"
+description: "Connect any API that speaks the OpenAI chat completions format"
+---
+
+The **OpenAI-Compatible** provider lets you connect Loophole to any server that implements the OpenAI chat completions API — whether that's a self-hosted model, a third-party proxy, or a custom inference backend.
+
+## Setup
+
+<Steps>
+  <Step title="Get your endpoint URL">
+    Find the base URL of your OpenAI-compatible API. It should end with `/v1` or be the root URL if the server adds `/v1` automatically.
+
+    Common examples:
+
+    - `http://localhost:8080/v1` (local inference server)
+    - `https://my-proxy.example.com/v1` (custom proxy)
+  </Step>
+  <Step title="Configure in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **OpenAI-Compatible**, and fill in:
+
+    - **Endpoint** — your API base URL
+    - **API Key** — leave blank if the server doesn't require auth
+    - **Headers JSON** — optional extra HTTP headers (e.g. `{"X-Custom-Header": "value"}`)
+  </Step>
+  <Step title="Add a model">
+    Enter the model name your server expects. Loophole will pass it through as-is in the API request.
+  </Step>
+</Steps>
+
+## Common use cases
+
+**LiteLLM proxy** If you're running [LiteLLM](https://github.com/BerriAI/litellm) as a proxy in front of multiple providers, point the endpoint at your LiteLLM server. See also the dedicated [LiteLLM provider page](/providers/litellm).
+
+**Llamafile** [Llamafile](https://github.com/Mozilla-Ocho/llamafile) bundles a model and a server into a single executable. Run the file and point Loophole at `http://localhost:8080`.
+
+**Jan** [Jan](https://jan.ai) is a desktop app for running local models that exposes an OpenAI-compatible API on `http://localhost:1337`.
+
+**Custom inference servers** Any server built with vLLM, Text Generation Inference (TGI), or llama.cpp's server mode works here.
+
+## Custom headers
+
+The **Headers JSON** field lets you pass arbitrary HTTP headers to the API. This is useful for:
+
+- Authorization schemes that don't use `Bearer` tokens
+- Required headers for internal proxies
+- Routing hints for multi-tenant services
+
+```json
+{
+  "X-API-Key": "your-key-here",
+  "X-Tenant-ID": "my-org"
+}
+```

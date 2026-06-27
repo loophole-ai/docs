@@ -1,0 +1,74 @@
+---
+title: "Model Capabilities"
+description: "Which models support reasoning, FIM autocomplete, vision, and other features"
+---
+
+Not all models support all features. Loophole uses capability metadata to decide how to interact with each model. Here's a reference for the most commonly used models.
+
+## Capability glossary
+
+| Capability | What it means |
+| --- | --- |
+| **Reasoning** | Model performs chain-of-thought reasoning before answering |
+| **Reasoning I/O** | Loophole can read the model's reasoning output (not just the final answer) |
+| **FIM** | Fill-In-Middle: model is trained for autocomplete-style completions |
+| **Vision** | Model can process images as input |
+| **Tool use** | Model supports function/tool calling (required for agent mode) |
+
+## Anthropic
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `claude-opus-4` | ✓ | — | ✓ | ✓ |
+| `claude-sonnet-4-5` | ✓ | — | ✓ | ✓ |
+| `claude-3-7-sonnet-20250219` | ✓ (configurable) | — | ✓ | ✓ |
+| `claude-3-5-haiku-20241022` | — | — | ✓ | ✓ |
+
+## OpenAI
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `gpt-4o` | — | — | ✓ | ✓ |
+| `gpt-4o-mini` | — | — | ✓ | ✓ |
+| `o3` | ✓ | — | ✓ | ✓ |
+| `o4-mini` | ✓ | — | ✓ | ✓ |
+
+## Google Gemini
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `gemini-2.5-pro` | ✓ | — | ✓ | ✓ |
+| `gemini-2.0-flash` | — | — | ✓ | ✓ |
+
+## DeepSeek
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `deepseek-chat` (V3) | — | — | — | ✓ |
+| `deepseek-reasoner` (R1) | ✓ (I/O) | — | — | ✓ |
+
+## Mistral
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `mistral-large-latest` | — | — | — | ✓ |
+| `codestral-latest` | — | ✓ | — | — |
+
+## Local models (Ollama)
+
+| Model | Reasoning | FIM | Vision | Tool use |
+| --- | --- | --- | --- | --- |
+| `qwen2.5-coder:7b` | — | ✓ | — | ✓ |
+| `qwen2.5-coder:1.5b` | — | ✓ | — | — |
+| `deepseek-r1:14b` | ✓ | — | — | ✓ |
+| `codestral:22b` | — | ✓ | — | — |
+| `llama3.3:70b` | — | — | — | ✓ |
+| `phi4:14b` | — | — | — | ✓ |
+
+<Note>
+  Capability support for local models depends on the specific version and quantization you pull. When in doubt, check the model's Ollama page.
+</Note>
+
+## Agent mode requirements
+
+To use Agent mode, the selected Chat model must support **tool use**. If you pick a model that doesn't support tool calling, Loophole will fall back to Normal mode and warn you.

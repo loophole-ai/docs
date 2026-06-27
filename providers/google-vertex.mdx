@@ -1,0 +1,48 @@
+---
+title: "Google Vertex AI"
+description: "Access Gemini models through Google Cloud's enterprise AI platform"
+---
+
+Google Vertex AI provides access to Gemini models through Google Cloud Platform (GCP), with enterprise features like private networking, VPC Service Controls, and unified GCP billing.
+
+## Prerequisites
+
+- A Google Cloud project with billing enabled
+- The Vertex AI API enabled in your project
+- A service account with the `Vertex AI User` role
+
+## Getting access
+
+<Steps>
+  <Step title="Enable the Vertex AI API">
+    In the [Google Cloud Console](https://console.cloud.google.com), search for **Vertex AI API** and click **Enable**.
+  </Step>
+  <Step title="Create a service account">
+    Go to **IAM & Admin → Service Accounts → Create Service Account**. Grant it the **Vertex AI User** role. Under **Keys**, create a JSON key and download it.
+  </Step>
+  <Step title="Configure Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Google Vertex AI**, and enter:
+
+    - **Project** — your GCP project ID (e.g. `my-company-prod`)
+    - **Region** — the region to use (e.g. `us-central1`, `us-west2`, `europe-west4`)
+  </Step>
+</Steps>
+
+## Supported regions
+
+Gemini on Vertex is available in most major GCP regions. The default in Loophole is `us-west2`. Check [Google's Vertex AI locations page](https://cloud.google.com/vertex-ai/docs/general/locations) for the full list.
+
+## When to use Vertex vs. Gemini API
+
+|  | Gemini API | Vertex AI |
+| --- | --- | --- |
+| Setup | API key only | GCP project \+ service account |
+| Billing | Google AI billing | GCP billing |
+| Private networking | No | Yes (VPC Service Controls) |
+| Data residency | Limited | Regional control |
+| Best for | Individuals, small teams | Enterprises, regulated industries |
+
+## Tips
+
+- For most developers, the [Gemini API](/providers/gemini) is simpler and faster to set up.
+- Use Vertex if your organization requires data to stay within a specific region or GCP network boundary.

@@ -1,0 +1,40 @@
+---
+title: "Microsoft Azure"
+description: "Use OpenAI models deployed through Azure AI Foundry"
+---
+
+Azure AI Foundry (formerly Azure OpenAI Service) lets you run OpenAI models — GPT-4o, o-series, and others — on Microsoft's infrastructure with enterprise security, compliance, and regional data residency.
+
+## Prerequisites
+
+- An Azure subscription
+- Access to Azure AI Foundry (requires application approval from Microsoft for some model tiers)
+- A deployed model endpoint in your Azure project
+
+## Getting your credentials
+
+<Steps>
+  <Step title="Deploy a model in Azure AI Foundry">
+    Go to [ai.azure.com](https://ai.azure.com), create a project, and deploy a model (e.g. `gpt-4o`). Note the **Resource name** (not the full URL — just the subdomain, e.g. `my-company-openai`).
+  </Step>
+  <Step title="Get your API key">
+    In your Azure AI Foundry project, go to **Settings → Keys and Endpoint**. Copy one of the keys.
+  </Step>
+  <Step title="Configure Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Microsoft Azure**, and fill in:
+
+    - **Project** — your Azure resource name (the subdomain of your endpoint)
+    - **API Key** — the key from Azure AI Foundry
+    - **Azure API Version** — defaults to `2024-05-01-preview`; change only if required by your deployment
+  </Step>
+</Steps>
+
+## API version
+
+The Azure OpenAI API version (`azure-api-version`) controls which API features are available. The default (`2024-05-01-preview`) supports all current features. Only change this if your Azure admin has locked deployments to a specific version.
+
+## Tips
+
+- Azure is the right choice for organizations with Microsoft Enterprise Agreements or compliance requirements (SOC 2, HIPAA, GDPR).
+- For individual developers, using the [OpenAI provider](/providers/openai) directly is much simpler.
+- If your organization uses Azure AD/Entra for authentication, check with your Azure admin — token-based auth may be available instead of API keys.

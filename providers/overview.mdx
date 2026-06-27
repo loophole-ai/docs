@@ -1,0 +1,52 @@
+---
+title: "Providers Overview"
+description: "All the AI model providers supported by Loophole"
+---
+
+Loophole supports 15\+ model providers out of the box. You can assign a different provider and model to each feature — chat, autocomplete, inline edit, apply, and source control.
+
+## Cloud providers
+
+| Provider | Auth | Notes |
+| --- | --- | --- |
+| [Anthropic](/providers/anthropic) | API key | Claude 3.5, 3.7 Sonnet, Claude Opus |
+| [OpenAI](/providers/openai) | API key | GPT-4o, o3, o4-mini |
+| [Google Gemini](/providers/gemini) | API key | Gemini 2.0, 2.5 Pro/Flash |
+| [DeepSeek](/providers/deepseek) | API key | DeepSeek V3, R1 |
+| [xAI (Grok)](/providers/xai) | API key | Grok 3, Grok 3 Mini |
+| [Mistral](/providers/mistral) | API key | Mistral Large, Codestral |
+| [Groq](/providers/groq) | API key | Llama 3.3, DeepSeek R1 (fast inference) |
+| [OpenRouter](/providers/openrouter) | API key | Access 100\+ models via one key |
+| [Google Vertex AI](/providers/google-vertex) | GCP project \+ region | Enterprise Gemini via Vertex |
+| [Microsoft Azure](/providers/azure) | API key \+ resource | Azure OpenAI models |
+| [AWS Bedrock](/providers/aws-bedrock) | API key \+ region | Claude, Llama, Titan via Bedrock |
+| [Cohere](/providers/cohere) | API key | Command R\+ |
+| [Perplexity](/providers/perplexity) | API key | Sonar models |
+| [Together AI](/providers/together) | API key | Open-source models via Together |
+| [Fireworks AI](/providers/fireworks) | API key | Fast open-source model inference |
+| [LiteLLM](/providers/litellm) | Endpoint | Proxy to any provider |
+| [OpenAI-Compatible](/providers/openai-compatible) | Endpoint \+ optional API key | Any OpenAI-compatible API |
+
+## Local providers
+
+Run models entirely on your own machine — no API key, no data leaving your device.
+
+| Provider | Notes |
+| --- | --- |
+| [Ollama](/providers/ollama) | Easiest local setup. Pull any model with `ollama pull`. |
+| [LM Studio](/providers/lm-studio) | GUI app for running local models with an OpenAI-compatible API. |
+| [vLLM](/providers/vllm) | High-performance inference server for GPU-accelerated local models. |
+
+## Assigning models per feature
+
+Go to **Settings → Model Selection** to choose which provider and model powers each Loophole feature:
+
+- **Chat** — the main chat panel
+- **Ctrl\+K** — inline quick-edit
+- **Autocomplete** — inline code completions
+- **Apply** — applies AI-suggested changes from chat to your files
+- **SCM** — generates commit messages from your diff
+
+<Tip>
+  A common setup: use a large, capable model (like Claude Sonnet or GPT-4o) for Chat, and a small, fast model (like `qwen2.5-coder:1.5b` via Ollama) for Autocomplete.
+</Tip>

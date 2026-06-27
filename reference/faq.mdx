@@ -1,0 +1,74 @@
+---
+title: "FAQ"
+description: "Answers to common questions about Loophole IDE"
+---
+
+<AccordionGroup>
+  <Accordion title="Is Loophole free?">
+    Loophole itself is free and open source. You pay for the AI models you use — billed directly by the provider (Anthropic, OpenAI, etc.) based on your usage. There's no Loophole subscription.
+
+    To use Loophole for free, connect it to Ollama and run a local model — no API key, no cost.
+  </Accordion>
+
+  <Accordion title="Can I use Loophole without an internet connection?">
+    Yes — if you use a local provider like Ollama, LM Studio, or vLLM. Everything runs on your machine. Cloud providers (Anthropic, OpenAI, etc.) require an internet connection.
+  </Accordion>
+
+  <Accordion title="Is Loophole based on VS Code?">
+    Yes. Loophole is a fork of VS Code with AI features integrated at the core. You get the full VS Code experience — extensions, themes, keybindings, the terminal, Git integration — with AI built in rather than added on top.
+  </Accordion>
+
+  <Accordion title="Can I use my existing VS Code extensions?">
+    Yes. All VS Code extensions work in Loophole. On first launch, Loophole offers to import your extensions automatically. The only exceptions are competing AI extensions (Copilot, Cline, Continue, etc.) which are skipped to avoid conflicts. See the [migration guide](/guides/migrating-from-vscode) for details.
+  </Accordion>
+
+  <Accordion title="Does Loophole send my code to any servers?">
+    Loophole sends your code only to the AI provider you've configured — directly from your machine, without passing through any Loophole servers. Telemetry is anonymous and opt-out. See the [Privacy page](/reference/privacy) for full details.
+  </Accordion>
+
+  <Accordion title="Which model should I use?">
+    It depends on the task:
+
+    - **Best overall:** `claude-sonnet-4-5` (Anthropic) or `gpt-4o` (OpenAI)
+    - **Best for reasoning / hard problems:** `claude-opus-4` or `o3` (OpenAI)
+    - **Best free option:** Gemini via Google AI Studio (free tier)
+    - **Best local model:** `qwen2.5-coder:7b` via Ollama
+
+    See [Model Capabilities](/reference/model-capabilities) for a full breakdown.
+  </Accordion>
+
+  <Accordion title="Can I use multiple providers at the same time?">
+    Yes. You can assign a different provider and model to each feature. For example: Anthropic for chat, OpenAI for Ctrl\+K, and Ollama for autocomplete — all at the same time.
+  </Accordion>
+
+  <Accordion title="Does Agent mode cost a lot of tokens?">
+    Agent mode uses more tokens than normal chat because it reads files, runs tools, and has a longer back-and-forth with the model. Long agent sessions can consume thousands of tokens. Tips to control costs:
+
+    - Use Plan mode first to sketch out the task before switching to Agent mode.
+    - Start a new conversation (`Ctrl+Shift+N`) for each distinct task to clear history.
+    - Assign a cheaper model to Agent mode (like DeepSeek V3 or Gemini Flash) for routine tasks.
+  </Accordion>
+
+  <Accordion title="How do I update Loophole?">
+    Loophole checks for updates automatically. When one is available, you'll see a notification in the status bar or a prompt. Click **Download** or **Restart to update** depending on the update type. You can also check manually via **Help → Check for Updates**.
+  </Accordion>
+
+  <Accordion title="Can I use Loophole with a team?">
+    Yes. Each team member installs Loophole and uses their own API keys. For centralized key management, billing control, and logging across a team, run a [LiteLLM proxy](/providers/litellm) that everyone connects to.
+  </Accordion>
+
+  <Accordion title="What's the difference between Apply and Ctrl+K?">
+    - **Ctrl\+K** opens an inline prompt at your cursor for small, targeted edits to selected code. It's fast and focused.
+    - **Apply** takes a code suggestion that appeared in the chat panel and writes it to the actual file. It's how you accept multi-file or larger changes the AI proposed in chat.
+  </Accordion>
+
+  <Accordion title="Can I use Loophole with my existing .vscode/ settings?">
+    Yes. Loophole reads workspace settings from `.vscode/settings.json` the same way VS Code does. Your existing workspace configurations work without any changes.
+  </Accordion>
+
+  <Accordion title="Where can I get help?">
+    - **Docs** — you're here!
+    - **GitHub Issues** — [github.com/loophole-ai/loophole-ide/issues](https://github.com/loophole-ai/loophole-ide/issues)
+    - **GitHub Discussions** — [github.com/loophole-ai/loophole-ide/discussions](https://github.com/loophole-ai/loophole-ide/discussions)
+  </Accordion>
+</AccordionGroup>

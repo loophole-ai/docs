@@ -1,0 +1,42 @@
+---
+title: "OpenAI"
+description: "Connect Loophole to OpenAI's GPT and o-series models"
+---
+
+## Setup
+
+<Steps>
+  <Step title="Get an API key">
+    Sign up at [platform.openai.com](https://platform.openai.com) and create an API key under **API Keys**.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **OpenAI**, paste your API key, and save.
+  </Step>
+  <Step title="Select a model">
+    Go to **Settings → Model Selection** and choose an OpenAI model for the features you want.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `gpt-4o` | Fast, multimodal, great all-rounder |
+| `gpt-4o-mini` | Cheap and fast — great for autocomplete |
+| `o3` | Deep reasoning for hard problems |
+| `o4-mini` | Fast reasoning model, good value |
+| `o1` | Strong at math and science reasoning |
+
+## Reasoning models
+
+OpenAI's `o`-series models (`o1`, `o3`, `o4-mini`) use chain-of-thought reasoning internally before producing a response. They're slower than GPT-4o but significantly better at multi-step logic, math, and complex code tasks.
+
+<Note>
+  Reasoning models don't support streaming in the same way — you may notice a longer pause before the response appears.
+</Note>
+
+## Tips
+
+- `gpt-4o` is a solid default for everyday chat and agent tasks.
+- `gpt-4o-mini` is fast enough for autocomplete and Ctrl\+K edits.
+- Use `o3` or `o4-mini` for Plan mode or difficult debugging sessions.

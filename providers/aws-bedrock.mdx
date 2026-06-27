@@ -1,0 +1,47 @@
+---
+title: "AWS Bedrock"
+description: "Access Claude, Llama, and other models through Amazon's managed AI service"
+---
+
+AWS Bedrock lets you access foundation models — including Anthropic Claude — through Amazon's infrastructure. It's ideal for teams already on AWS who need enterprise controls, private VPC networking, and consolidated billing.
+
+## Prerequisites
+
+- An AWS account with Bedrock access enabled in your region
+- IAM credentials with `bedrock:InvokeModel` permission
+- Model access granted in the AWS Bedrock console (you must explicitly enable each model)
+
+## Getting your credentials
+
+<Steps>
+  <Step title="Enable model access in AWS Bedrock">
+    In the [AWS Bedrock console](https://console.aws.amazon.com/bedrock), go to **Model access** and request access to the models you want to use (e.g. Claude, Llama). Approval is usually instant for most models.
+  </Step>
+  <Step title="Create an IAM user or role">
+    Go to **IAM** → **Users** → **Create user**. Attach the `AmazonBedrockFullAccess` policy (or a custom policy with `bedrock:InvokeModel`). Under **Security credentials**, create an **Access key** for programmatic access.
+  </Step>
+  <Step title="Configure Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **AWS Bedrock**, and fill in:
+
+    - **API Key** — your AWS Access Key ID \+ Secret Access Key (formatted as `accessKeyId:secretAccessKey`)
+    - **Region** — the AWS region where you enabled Bedrock (e.g. `us-east-1`)
+    - **Endpoint** — leave blank to use the default, or override for custom VPC endpoints
+  </Step>
+</Steps>
+
+## Supported regions
+
+Bedrock model availability varies by region. The most complete model catalog is in:
+
+- `us-east-1` (N. Virginia)
+- `us-west-2` (Oregon)
+- `eu-west-1` (Ireland)
+- `ap-southeast-1` (Singapore)
+
+Check the [Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) for the latest region/model matrix.
+
+## Tips
+
+- Bedrock is best suited for teams with AWS as their primary cloud — the setup overhead isn't worth it for individual developers.
+- Claude on Bedrock is functionally identical to Claude via the Anthropic API, but billing goes through your AWS account.
+- Use [AWS IAM Identity Center (SSO)](https://aws.amazon.com/iam/identity-center/) for team environments instead of individual IAM users.

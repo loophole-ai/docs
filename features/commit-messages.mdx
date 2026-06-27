@@ -1,0 +1,36 @@
+---
+title: "AI Commit Messages"
+description: "Let Loophole generate commit messages from your staged changes"
+---
+
+Loophole can automatically generate a commit message based on your staged git diff. It reads what changed and writes a concise, descriptive message — no more writing "fix stuff" at 2am.
+
+## How to use it
+
+<Steps>
+  <Step title="Stage your changes">
+    Use the Source Control panel (`Ctrl+Shift+G`) or the terminal to stage the files you want to commit.
+  </Step>
+  <Step title="Click the sparkle icon">
+    In the Source Control panel, click the **Generate commit message** button (✨) next to the commit message input box.
+  </Step>
+  <Step title="Review and commit">
+    Loophole fills in the message. Edit it if needed, then commit as normal.
+  </Step>
+</Steps>
+
+## Configuring the SCM model
+
+The commit message generator uses the **SCM** model slot. Go to **Settings → Model Selection → SCM** to pick your model.
+
+A small, fast model works well here — the diff is usually short and the task is simple. Good options:
+
+- `gpt-4o-mini` (OpenAI)
+- `claude-3-5-haiku-20241022` (Anthropic)
+- `qwen2.5-coder:1.5b` (Ollama — free and fast)
+
+## Tips
+
+- Stage only the files relevant to one logical change before generating. The AI writes better messages when the diff is focused.
+- If you have a large diff, the model may summarize broadly. Break large changes into smaller commits for more specific messages.
+- You can edit the generated message before committing — treat it as a starting point.

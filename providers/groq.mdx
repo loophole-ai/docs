@@ -1,0 +1,46 @@
+---
+title: "Groq"
+description: "Use Groq's ultra-fast inference for open-source models"
+---
+
+[Groq](https://groq.com) provides inference hardware (LPUs) that runs open-source models at extremely high speeds — often 10–20× faster than standard GPU inference. It's a great choice when you need fast responses from models like Llama or DeepSeek.
+
+## Getting your API key
+
+<Steps>
+  <Step title="Create a Groq account">
+    Sign up at [console.groq.com](https://console.groq.com).
+  </Step>
+  <Step title="Generate an API key">
+    Go to **API Keys** → **Create API Key**. Name it and copy the key.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Groq**, paste your key, and save.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `llama-3.3-70b-versatile` | Best quality on Groq — strong at coding |
+| `llama-3.1-8b-instant` | Fastest Groq model — very low latency |
+| `deepseek-r1` | Reasoning model on Groq's fast hardware |
+
+## Why use Groq?
+
+Groq's main advantage is **speed**. If you're using Llama or DeepSeek models and want responses that feel instant, Groq's inference is hard to beat. This makes it excellent for:
+
+- **Autocomplete** — sub-100ms responses
+- **Ctrl\+K** — near-instant inline edits
+- **Chat** when you want rapid back-and-forth
+
+## Free tier
+
+Groq has a free tier with rate limits. For light personal use, you may never need to add a credit card.
+
+## Tips
+
+- `llama-3.1-8b-instant` is one of the fastest models available anywhere — try it for autocomplete.
+- `llama-3.3-70b-versatile` punches above its weight for coding tasks.
+- Groq rate limits are per-minute, so for long agent sessions you may hit limits. For those, use a provider without strict RPM caps.

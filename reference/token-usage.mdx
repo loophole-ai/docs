@@ -1,0 +1,46 @@
+---
+title: "Token Usage"
+description: "Monitor your AI token consumption across conversations and features"
+---
+
+Loophole tracks the tokens used in every AI request so you can monitor costs and understand how much context you're sending.
+
+## Viewing token usage
+
+Click the **token counter** in the status bar at the bottom of the editor to open the Token Usage dialog. It shows:
+
+- Tokens used in the current conversation (input and output)
+- Cumulative tokens for the current session
+- A breakdown by feature (Chat, Ctrl\+K, Autocomplete, Apply, SCM)
+
+## Understanding tokens
+
+Models charge per token — roughly 3–4 characters of text. Every request includes:
+
+- **Input tokens** — your message, the system prompt, conversation history, and any file context you attached
+- **Output tokens** — the model's response
+
+Output tokens typically cost 3–5× more than input tokens depending on the provider.
+
+## Reducing token usage
+
+Long conversations accumulate history and send more input tokens with every message. To keep costs down:
+
+- **Start a new conversation** (`Ctrl+Shift+N`) when you switch to a different task — this clears the history.
+- **Avoid attaching large files** unnecessarily. Attach only the files the AI actually needs.
+- **Use Gather mode** when you only want the AI to read context and answer a question — it won't take actions, so you won't end up paying for a long agentic loop.
+- **Use a smaller model** for features where you don't need maximum capability (autocomplete, SCM, Ctrl\+K).
+
+## Context window limits
+
+Each model has a maximum context window — the total number of tokens it can process in one request (input \+ output combined). If a conversation grows too long, Loophole will warn you when you're approaching the limit.
+
+Common context windows:
+
+| Model | Context window |
+| --- | --- |
+| Claude Sonnet 4.5 | 200,000 tokens |
+| GPT-4o | 128,000 tokens |
+| Gemini 2.0 Flash | 1,000,000 tokens |
+| DeepSeek V3 | 64,000 tokens |
+| Local models (Ollama) | Varies — typically 4,096–32,768 tokens |

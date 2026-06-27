@@ -1,0 +1,58 @@
+---
+title: "MCP Tools"
+description: "Extend the AI agent with external tools via Model Context Protocol servers"
+---
+
+**Model Context Protocol (MCP)** is an open standard that lets you connect external tools and data sources to the AI agent. With MCP, the agent can interact with databases, APIs, browsers, local services, and anything else an MCP server exposes.
+
+## How MCP works in Loophole
+
+When you add an MCP server, Loophole connects to it and discovers the tools it exposes. The AI agent can then call those tools during a conversation — the same way it uses built-in tools like `read_file` or `run_command`.
+
+The agent decides on its own when to call an MCP tool based on your prompt. You'll be asked to approve each call unless you've enabled auto-approve for MCP tools.
+
+## Adding an MCP server
+
+<Steps>
+  <Step title="Open MCP settings">
+    Go to **Settings → MCP** in the Loophole settings pane (`Ctrl+Shift+L`).
+  </Step>
+  <Step title="Add a server">
+    Click **Add Server** and provide:
+
+    - **Name** — a label for this server
+    - **Command** — the command to launch the server process (e.g. `npx -y @modelcontextprotocol/server-filesystem /path/to/dir`)
+    - **Arguments** — any additional args
+    - **Environment variables** — optional env vars the server needs
+  </Step>
+  <Step title="Save and connect">
+    Loophole starts the server process and lists the tools it exposes. You'll see them in the tool panel.
+  </Step>
+</Steps>
+
+## Popular MCP servers
+
+| Server | What it does | Install |
+| --- | --- | --- |
+| `@modelcontextprotocol/server-filesystem` | Read/write files outside your project | `npx -y @modelcontextprotocol/server-filesystem` |
+| `@modelcontextprotocol/server-github` | Search repos, issues, PRs via GitHub API | `npx -y @modelcontextprotocol/server-github` |
+| `@modelcontextprotocol/server-postgres` | Query a PostgreSQL database | `npx -y @modelcontextprotocol/server-postgres` |
+| `@modelcontextprotocol/server-brave-search` | Web search via Brave Search API | `npx -y @modelcontextprotocol/server-brave-search` |
+| `@modelcontextprotocol/server-puppeteer` | Control a browser | `npx -y @modelcontextprotocol/server-puppeteer` |
+
+Find more at the [MCP server registry](https://github.com/modelcontextprotocol/servers).
+
+## Approving MCP tool calls
+
+MCP tool calls are grouped under the **MCP tools** approval type. You can:
+
+- Approve each call individually as the agent makes them
+- Enable **Auto-approve MCP tools** in Settings to let the agent use them freely
+
+<Warning>
+  MCP servers can have significant system access depending on what they expose. Review the server's documentation before auto-approving its tool calls.
+</Warning>
+
+## Building your own MCP server
+
+Any program that speaks the MCP protocol over stdio or HTTP\+SSE can be an MCP server. See the [official MCP spec](https://modelcontextprotocol.io) for how to build one.

@@ -1,0 +1,54 @@
+---
+title: "DeepSeek"
+description: "Connect Loophole to DeepSeek's powerful coding and reasoning models"
+---
+
+DeepSeek offers some of the best open-weight models for coding tasks, including their flagship reasoning model DeepSeek R1.
+
+## Setup
+
+<Steps>
+  <Step title="Get an API key">
+    Sign up at [platform.deepseek.com](https://platform.deepseek.com) and generate an API key.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **DeepSeek**, paste your key, and save.
+  </Step>
+  <Step title="Select a model">
+    Go to **Settings → Model Selection** and pick a DeepSeek model.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `deepseek-chat` | Fast, general-purpose coding (DeepSeek V3) |
+| `deepseek-reasoner` | Hard problems with chain-of-thought reasoning (R1) |
+
+## DeepSeek R1 reasoning
+
+`deepseek-reasoner` is DeepSeek's R1 model, which outputs its reasoning process before giving a final answer. Loophole renders the reasoning separately so you can see how the model arrived at its response.
+
+R1 is particularly strong at:
+
+- Complex debugging
+- Algorithm design
+- Math and logic-heavy code
+
+## Running DeepSeek locally
+
+You can also run DeepSeek models locally via Ollama:
+
+```bash
+ollama pull deepseek-r1:14b
+ollama pull deepseek-coder-v2:16b
+```
+
+See the [Ollama provider page](/providers/ollama) for setup instructions.
+
+## Tips
+
+- `deepseek-chat` (V3) is very cost-effective for everyday coding tasks.
+- Use `deepseek-reasoner` for Plan mode or difficult multi-step agent tasks.
+- DeepSeek pricing is significantly cheaper than comparable OpenAI/Anthropic models.

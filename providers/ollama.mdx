@@ -1,0 +1,60 @@
+---
+title: "Ollama"
+description: "Run local AI models for free with no API key required"
+---
+
+Ollama lets you run open-source models entirely on your machine. No API key, no usage costs, no data sent to any server.
+
+## Setup
+
+<Steps>
+  <Step title="Install Ollama">
+    Download and install Ollama from [ollama.com](https://ollama.com). It runs as a local server on `http://127.0.0.1:11434`.
+  </Step>
+  <Step title="Pull a model">
+    Open a terminal and pull a model:
+
+    ```bash
+    ollama pull qwen2.5-coder:7b
+    ```
+
+    Ollama will download the model weights (a few GB depending on size). You only need to do this once per model.
+  </Step>
+  <Step title="Connect Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Ollama**. The endpoint defaults to `http://127.0.0.1:11434` — leave it as-is unless you're running Ollama on a different machine.
+  </Step>
+  <Step title="Pick your model">
+    Loophole will auto-detect all models you've pulled. Go to **Settings → Model Selection** and choose the Ollama model for each feature.
+  </Step>
+</Steps>
+
+## Recommended models
+
+| Model | Size | Best for |
+| --- | --- | --- |
+| `qwen2.5-coder:7b` | ~4 GB | General coding, chat |
+| `qwen2.5-coder:1.5b` | ~1 GB | Autocomplete — very fast |
+| `deepseek-coder-v2:16b` | ~9 GB | Strong coding tasks |
+| `llama3.3:70b` | ~40 GB | Best quality, needs a powerful GPU |
+| `codestral:22b` | ~13 GB | FIM autocomplete |
+| `phi4:14b` | ~8 GB | Good reasoning, smaller footprint |
+
+<Tip>
+  For autocomplete, use the smallest model that feels accurate enough — `qwen2.5-coder:1.5b` is a good starting point and responds in milliseconds on most machines.
+</Tip>
+
+## Custom endpoint
+
+If you're running Ollama on a remote machine or a different port, update the endpoint in **Settings → Ollama → Endpoint**.
+
+```text
+http://192.168.1.50:11434
+```
+
+## Troubleshooting
+
+**Models aren't showing up** Make sure Ollama is running (`ollama serve`) and that you've pulled at least one model (`ollama list`).
+
+**Slow responses** Large models need a GPU with enough VRAM to run at full speed. If the model doesn't fit in VRAM, it falls back to CPU, which is much slower. Try a smaller model variant.
+
+**Connection refused** Ollama's server may not be running. Start it with `ollama serve` in a terminal.

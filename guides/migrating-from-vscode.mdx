@@ -1,0 +1,72 @@
+---
+title: "Migrating from VS Code / Cursor / Windsurf"
+description: "Bring your extensions, settings, and keybindings from your current editor to Loophole"
+---
+
+Loophole is built on VS Code, so migration is seamless. Your extensions, themes, keybindings, and settings all transfer over automatically.
+
+## Automatic migration on first launch
+
+When you open Loophole for the first time, it detects if you have VS Code, Cursor, or Windsurf installed and offers to import everything automatically — extensions, settings, snippets, and keybindings in one click.
+
+Click **Import** on the welcome screen, select your source editor, and Loophole handles the rest.
+
+## Manual migration
+
+If you skipped the automatic import or want to do it later:
+
+<Steps>
+  <Step title="Open the command palette">
+    Press `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS).
+  </Step>
+  <Step title="Run the import command">
+    Type **Loophole: Import Extensions and Settings** and press Enter.
+  </Step>
+  <Step title="Choose your source editor">
+    Select **VS Code**, **Cursor**, or **Windsurf** from the list. Loophole will copy extensions and settings from the appropriate profile directory.
+  </Step>
+</Steps>
+
+## What gets imported
+
+| Item | Imported |
+| --- | --- |
+| Extensions | ✓ (except conflicting AI extensions — see below) |
+| User settings (`settings.json`) | ✓ |
+| Keybindings (`keybindings.json`) | ✓ |
+| Snippets | ✓ |
+| Themes | ✓ (via extension import) |
+| Profiles | ✓ |
+| Workspace files (`.code-workspace`) | ✓ |
+
+## Conflicting AI extensions
+
+Some AI extensions conflict with Loophole's built-in features (autocomplete, chat, keybindings). During import, Loophole automatically skips these:
+
+- GitHub Copilot
+- Cline (`saoudrizwan.claude-dev`)
+- Continue (`continue.continue`)
+- Codeium
+- Roo (`rooveterinaryinc.roo-cline`)
+- Supermaven
+- Sourcegraph Cody
+
+If you need any of these for a specific reason, you can install them manually afterward, but expect keybinding conflicts with Loophole's `Ctrl+L` and `Ctrl+K` shortcuts.
+
+## Where settings are stored
+
+| OS | Settings location |
+| --- | --- |
+| Windows | `%APPDATA%\Loophole\User\settings.json` |
+| macOS | `~/Library/Application Support/Loophole/User/settings.json` |
+| Linux | `~/.config/Loophole/User/settings.json` |
+
+These paths follow the same pattern as VS Code, making it easy to copy files manually if needed.
+
+## Syncing settings across machines
+
+Loophole supports VS Code's built-in **Settings Sync** — sign in with a GitHub or Microsoft account under **File → Preferences → Settings Sync** to keep your settings in sync across machines.
+
+## Keeping VS Code alongside Loophole
+
+Loophole and VS Code can coexist on the same machine — they use separate user data directories and don't interfere with each other. You can use both and switch between them freely.

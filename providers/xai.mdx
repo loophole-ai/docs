@@ -1,0 +1,38 @@
+---
+title: "xAI (Grok)"
+description: "Connect Loophole to xAI's Grok models"
+---
+
+## Getting your API key
+
+<Steps>
+  <Step title="Sign up for xAI API access">
+    Go to [console.x.ai](https://console.x.ai) and create an account.
+  </Step>
+  <Step title="Generate an API key">
+    Navigate to **API Keys** and create a new key. Copy it — you won't be able to see it again.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **xAI (Grok)**, paste your key, and save.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `grok-3` | Most capable — strong at coding and reasoning |
+| `grok-3-fast` | Same capability as Grok 3, lower latency |
+| `grok-3-mini` | Lightweight, fast, cost-effective |
+| `grok-3-mini-fast` | Fastest Grok model — great for autocomplete |
+| `grok-2` | Previous generation, still capable |
+
+## Reasoning support
+
+Grok 3 supports configurable reasoning — you can control whether the model reasons before answering and how much reasoning budget to allocate. This is configured per-model under **Settings → Model Overrides**.
+
+## Tips
+
+- `grok-3-fast` gives you Grok 3 quality with noticeably lower latency than the standard endpoint.
+- `grok-3-mini` and `grok-3-mini-fast` are good choices for Ctrl\+K and autocomplete where speed matters.
+- Grok models support tool use and work in Agent mode.

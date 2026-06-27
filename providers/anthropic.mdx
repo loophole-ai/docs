@@ -1,0 +1,41 @@
+---
+title: "Anthropic"
+description: "Connect Loophole to Anthropic's Claude models"
+---
+
+## Setup
+
+<Steps>
+  <Step title="Get an API key">
+    Sign up at [console.anthropic.com](https://console.anthropic.com) and generate an API key.
+  </Step>
+  <Step title="Enter the key in Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **Anthropic**, paste your API key, and save.
+  </Step>
+  <Step title="Select a model">
+    Go to **Settings → Model Selection** and choose an Anthropic model for the features you want.
+  </Step>
+</Steps>
+
+## Available models
+
+| Model | Best for |
+| --- | --- |
+| `claude-opus-4` | Most capable — complex reasoning and long tasks |
+| `claude-sonnet-4-5` | Best balance of speed and intelligence |
+| `claude-3-7-sonnet-20250219` | Strong at coding with extended thinking support |
+| `claude-3-5-haiku-20241022` | Fastest Claude model — great for autocomplete |
+
+Loophole auto-detects new Anthropic models as they are released. If you don't see a model, you can add it manually under **Settings → Anthropic → Custom Models**.
+
+## Extended thinking
+
+Claude models that support extended thinking (`claude-3-7-sonnet` and later) can spend time reasoning before responding. This improves accuracy on complex tasks at the cost of speed.
+
+Extended thinking is configured per-model in **Settings → Model Overrides**.
+
+## Tips
+
+- Claude Sonnet is a great default for chat and agent tasks.
+- Claude Haiku is well-suited for autocomplete — it's fast and cheap.
+- Claude Opus is the right choice for difficult multi-step agent tasks where quality matters more than speed.

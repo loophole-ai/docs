@@ -53,7 +53,10 @@
           "features/inline-edits",
           "features/agent-mode",
           "features/codebase-context",
-          "features/keyboard-shortcuts"
+          "features/keyboard-shortcuts",
+          "features/agent-tools.mdx",
+          "features/commit-messages.mdx",
+          "features/mcp.mdx"
         ]
       },
       {
@@ -63,7 +66,40 @@
           "guides/working-with-git",
           "guides/extensions",
           "guides/themes",
-          "guides/troubleshooting"
+          "guides/troubleshooting",
+          "guides/migrating-from-vscode.mdx"
+        ]
+      },
+      {
+        "group": "Providers",
+        "icon": "plug",
+        "pages": [
+          "providers/overview.mdx",
+          "providers/anthropic.mdx",
+          "providers/aws-bedrock.mdx",
+          "providers/azure.mdx",
+          "providers/deepseek.mdx",
+          "providers/gemini.mdx",
+          "providers/google-vertex.mdx",
+          "providers/groq.mdx",
+          "providers/litellm.mdx",
+          "providers/getting-api-keys.mdx",
+          "providers/lm-studio.mdx",
+          "providers/mistral.mdx",
+          "providers/ollama.mdx",
+          "providers/openai.mdx",
+          "providers/openai-compatible.mdx",
+          "providers/openrouter.mdx",
+          "providers/xai.mdx",
+          "providers/vllm.mdx"
+        ]
+      },
+      {
+        "group": "Reference",
+        "icon": "book-bookmark",
+        "pages": [
+          "reference/privacy.mdx",
+          "reference/token-usage.mdx"
         ]
       },
       {
@@ -74,7 +110,18 @@
           "community/reporting-issues",
           "community/feature-requests",
           "community/code-of-conduct",
-          "community/support"
+          "community/support",
+          "community/building-from-source.mdx",
+          "community/faq.mdx"
+        ]
+      },
+      {
+        "group": "Reference",
+        "icon": "book-open",
+        "pages": [
+          "reference/model-selection.mdx",
+          "reference/model-capabilities.mdx",
+          "reference/faq.mdx"
         ]
       }
     ]
@@ -98,13 +145,7 @@
   "contextual": {
     "options": [
       "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "view"
     ]
   },
   "footer": {

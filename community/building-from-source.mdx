@@ -1,0 +1,76 @@
+---
+title: "Building from Source"
+description: "Clone and build Loophole IDE from the GitHub repository"
+---
+
+<Note>
+  Most users should download a pre-built release from the [releases page](https://github.com/loophole-ai/loophole-ide/releases). Building from source is for contributors and developers who want to modify Loophole.
+</Note>
+
+## Prerequisites
+
+- **Node.js 18\+**
+- **npm**
+- **Git**
+- **Python 3** (for native node modules)
+- **C\+\+ build tools** — Visual Studio Build Tools on Windows, Xcode CLI on macOS, `build-essential` on Linux
+
+## Clone and set up
+
+```bash
+git clone https://github.com/loophole-ai/loophole-ide
+cd loophole-ide
+npm install
+```
+
+## Build the React components first
+
+Loophole contains React-based UI panels that need to be compiled separately before the main build:
+
+```bash
+cd src/vs/workbench/contrib/void/browser/react
+npm install
+npm run build
+cd ../../../../../../../../
+```
+
+<Warning>
+  The main TypeScript compilation will fail with a "Cannot find module" error if the React build hasn't been run first. Always build React before running `npm run compile`.
+</Warning>
+
+## Compile TypeScript
+
+```bash
+npm run compile
+```
+
+This compiles all TypeScript source files. Expect it to take 3–5 minutes on first run.
+
+## Run in development mode
+
+```bash
+npm run watch       # Watch mode — recompiles on file changes
+./scripts/code.sh   # Launch the editor (macOS/Linux)
+.\scripts\code.bat  # Launch the editor (Windows)
+```
+
+## Build a distributable package
+
+```bash
+npm run gulp vscode-win32-x64    # Windows
+npm run gulp vscode-darwin-arm64 # macOS Apple Silicon
+npm run gulp vscode-darwin-x64   # macOS Intel
+npm run gulp vscode-linux-x64    # Linux
+```
+
+The packaged output is placed in a sibling directory (e.g. `../VSCode-win32-x64`).
+
+## Common build errors
+
+**`Cannot find module './react/out/...'`** You skipped the React build step. Run `npm run build` inside `src/vs/workbench/contrib/void/browser/react/` first.
+
+**`Property X is not assignable to the same property in base type`** A TypeScript interface mismatch. Check the relevant service file and ensure method return types match the interface declaration exactly.
+
+**`'someVariable' is declared but its value is never read`** Remove the unused variable and its import. The build treats this as an error.
+
+**`node-gyp` errors during `npm install`** Make sure Python 3 and C\+\+ build tools are installed. On Windows, run `npm install --global windows-build-tools` from an elevated prompt.

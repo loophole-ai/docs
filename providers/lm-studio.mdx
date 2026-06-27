@@ -1,0 +1,46 @@
+---
+title: "LM Studio"
+description: "Run local models with a GUI using LM Studio's built-in API server"
+---
+
+[LM Studio](https://lmstudio.ai) is a desktop application for downloading and running local AI models. It includes a built-in OpenAI-compatible API server that Loophole can connect to.
+
+## Setup
+
+<Steps>
+  <Step title="Download and install LM Studio">
+    Get it from [lmstudio.ai](https://lmstudio.ai). Available for macOS, Windows, and Linux.
+  </Step>
+  <Step title="Download a model">
+    In LM Studio, go to the **Discover** tab and search for a model. Click **Download** next to any model — `Qwen2.5-Coder-7B` and `Mistral-7B` are good starting points.
+  </Step>
+  <Step title="Start the local server">
+    Go to the **Local Server** tab (the `<->` icon) and click **Start Server**. By default it runs on `http://localhost:1234`.
+  </Step>
+  <Step title="Connect Loophole">
+    Open **Settings** (`Ctrl+Shift+L`), select **LM Studio**. The endpoint defaults to `http://localhost:1234` — leave it as-is unless you changed the LM Studio port.
+  </Step>
+  <Step title="Select a model">
+    Loophole will detect the model currently loaded in LM Studio. Go to **Settings → Model Selection** and pick it.
+  </Step>
+</Steps>
+
+<Note>
+  LM Studio only serves the model that's currently loaded. Load the model you want to use before connecting.
+</Note>
+
+## LM Studio vs. Ollama
+
+|  | LM Studio | Ollama |
+| --- | --- | --- |
+| Interface | GUI | CLI |
+| Model management | Download in-app | `ollama pull` |
+| Multi-model switching | Manual (one at a time) | Switch by model name |
+| GPU support | Yes | Yes |
+| Best for | Newcomers to local models | Power users, automation |
+
+## Tips
+
+- LM Studio shows you VRAM usage in real time — helpful for knowing if a model fits in your GPU.
+- For faster load times, keep your most-used model pinned in LM Studio so it's ready when Loophole needs it.
+- LM Studio supports GGUF quantized models from [Hugging Face](https://huggingface.co).
