@@ -1,0 +1,109 @@
+---
+title: "Reporting a Bug"
+description: "How to file a high-quality GitHub issue that gets fixed fast"
+sidebarTitle: "Reporting a Bug"
+---
+
+Good bug reports get fixed. Vague ones sit in the backlog. This guide shows you exactly what to include so your issue gets triaged and resolved quickly.
+
+## Before you file an issue
+
+<Steps>
+  <Step title="Check if it's already reported">
+    Search [open issues](https://github.com/loophole-ai/loophole-ide/issues) for your problem. Include keywords from the error message or the feature involved. If you find a match, **add a 👍 reaction** to the existing issue instead of opening a new one — this signals priority to maintainers.
+  </Step>
+  <Step title="Try the latest version">
+    Make sure you're on the latest Loophole release. Go to **Help → Check for Updates** or download from the [releases page](https://github.com/loophole-ai/loophole-ide/releases). Many bugs are already fixed in newer versions.
+  </Step>
+  <Step title="Reproduce it reliably">
+    Before filing, try to reproduce the bug at least twice. If you can identify the exact steps that trigger it, your report becomes much more actionable.
+  </Step>
+</Steps>
+
+## Opening an issue
+
+Go to [github.com/loophole-ai/loophole-ide/issues/new](https://github.com/loophole-ai/loophole-ide/issues/new).
+
+### Use a clear, specific title
+
+The title should describe what's broken, not how you feel about it.
+
+| ❌ Bad title | ✅ Good title |
+| --- | --- |
+| "It doesn't work" | "Agent mode crashes when editing a TypeScript file with syntax errors" |
+| "AI broken" | "Chat panel shows blank response when using DeepSeek R1 model" |
+| "Bug in autocomplete" | "Autocomplete triggers inside string literals in Python files" |
+
+### What to include in the body
+
+**1. What happened** Describe what went wrong. Include the exact error message if there is one.
+
+**2. What you expected** Describe what should have happened instead.
+
+**3. Steps to reproduce** Number each step. Be specific enough that a stranger could follow them:
+
+```text
+1. Open Loophole with a TypeScript project
+2. Select `claude-sonnet-4-5` as the chat model
+3. In Agent mode, prompt: "Add a console.log to every function in src/index.ts"
+4. Click Approve when the agent asks to edit the file
+5. → The editor shows a blank diff and the agent stops responding
+```
+
+**4. Your environment** Always include:
+
+- **Loophole version** — `Help → About`
+- **OS and version** — e.g. Windows 11, macOS 14.4, Ubuntu 22.04
+- **Provider and model** — e.g. Anthropic / claude-sonnet-4-5
+- **Any extensions installed** that might be relevant
+
+**5. Logs (if available)** Open the developer tools with `Help → Toggle Developer Tools` and check the **Console** tab for red errors. Paste them in a code block.
+
+```text
+Uncaught TypeError: Cannot read properties of undefined (reading 'transcribeAudio')
+    at LLMMessageService.ts:191
+```
+
+**6. Screenshots or screen recordings** A short screen recording is worth a thousand words for UI bugs. On macOS use `Cmd+Shift+5`, on Windows use the Snipping Tool or Xbox Game Bar (`Win+G`).
+
+## Issue template
+
+Here's a template you can paste directly into GitHub:
+
+````markdown
+## What happened
+<!-- Describe the bug clearly -->
+
+## Expected behaviour
+<!-- What should have happened? -->
+
+## Steps to reproduce
+1.
+2.
+3.
+
+## Environment
+- Loophole version:
+- OS:
+- Provider / model:
+
+## Error output (if any)
+\```
+paste error here
+\```
+
+## Screenshots / recording
+<!-- Drag and drop images here -->
+````
+
+## Labelling your issue
+
+You don't need to add labels — maintainers will do that. But if you know which area is affected, you can mention it in the title or body: `[Autocomplete]`, `[Agent]`, `[MCP]`, `[Provider: Ollama]`, etc.
+
+## Security issues
+
+**Do not** file a public GitHub issue for security vulnerabilities. Instead, use GitHub's private [Security Advisories](https://github.com/loophole-ai/loophole-ide/security/advisories/new) feature, or email the maintainers directly.
+
+## Feature requests
+
+Feature requests are welcome but use a different format — describe the problem you're trying to solve rather than the specific solution you have in mind. This gives maintainers more flexibility to find the best approach.

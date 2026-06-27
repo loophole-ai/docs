@@ -95,14 +95,6 @@
         ]
       },
       {
-        "group": "Reference",
-        "icon": "book-bookmark",
-        "pages": [
-          "reference/privacy.mdx",
-          "reference/token-usage.mdx"
-        ]
-      },
-      {
         "group": "Community",
         "icon": "users",
         "pages": [
@@ -112,7 +104,8 @@
           "community/code-of-conduct",
           "community/support",
           "community/building-from-source.mdx",
-          "community/faq.mdx"
+          "community/faq.mdx",
+          "community/reporting-bugs.mdx"
         ]
       },
       {
@@ -121,7 +114,9 @@
         "pages": [
           "reference/model-selection.mdx",
           "reference/model-capabilities.mdx",
-          "reference/faq.mdx"
+          "reference/faq.mdx",
+          "reference/privacy.mdx",
+          "reference/token-usage.mdx"
         ]
       }
     ]
